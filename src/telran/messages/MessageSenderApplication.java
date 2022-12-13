@@ -38,7 +38,7 @@ public class MessageSenderApplication {
 
 	}
 
-	static void sendMessage(InputOutput io) throws Exception{
+	static void sendMessage(InputOutput io) throws Exception {
 		String messageDetails[] = setArguments(io);
 		@SuppressWarnings("unchecked")
 		Class<Message> clazz = (Class<Message>) Class.forName(BASE_PACKAGE + messageDetails[0]);
@@ -78,8 +78,9 @@ public class MessageSenderApplication {
 		try {
 			URI uri = new URI("my://" + res[2]);
 			regexPattern = "\\b(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\b";
-			if (uri.getHost() == null || !matchInputWithPattern(uri.getHost(), regexPattern) || uri.getPort() < 1024 || uri.getPort() > 49151) {
-				throw new URISyntaxException(uri.toString(), "recepient must have IPv4 and port parts");
+			if (uri.getHost() == null || !matchInputWithPattern(uri.getHost(), regexPattern) || uri.getPort() < 1024
+					|| uri.getPort() > 49151) {
+				throw new URISyntaxException(uri.toString(), "recepient must have IPv4 address and port parts");
 			}
 
 			return true;
