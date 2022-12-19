@@ -1,17 +1,13 @@
 package telran.annotation.examples;
 
 import telran.annotation.*;
+import telran.validation.constraints.Pattern;
 
 
 public class Person {
 	@Id
-	@Min(value = 20)
-	@Max(value = 1000)
 	private long id;
-	@Pattern("[a-zA-Z]+")
-	@Min(value = 5)
-	@Max(value = 10)
-	@NotEmpty
+	@Pattern("[A-Z][a-z]{1,10}")
 	private String name;
 	
 	public Person(long id, String name) {

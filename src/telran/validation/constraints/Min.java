@@ -1,5 +1,4 @@
-package telran.annotation;
-
+package telran.validation.constraints;
 import static java.lang.annotation.ElementType.FIELD;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
@@ -8,7 +7,7 @@ import java.lang.annotation.Target;
 
 @Retention(RUNTIME)
 @Target(FIELD)
-public @interface Pattern {
-String value();
-String message() default "Pattern constraint violation";
+public @interface Min {
+String message() default "Min constraint violation";
+double value();
 }

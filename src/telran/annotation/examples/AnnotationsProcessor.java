@@ -3,6 +3,7 @@ package telran.annotation.examples;
 import java.lang.reflect.*;
 
 import telran.annotation.*;
+import telran.validation.constraints.Pattern;
 
 public class AnnotationsProcessor {
 static public Long getIdValue(Object obj) throws Exception{
@@ -25,7 +26,7 @@ static public String validatePattern(Object obj) {
 		Pattern pattern = field.getAnnotation(Pattern.class);
 		if (pattern != null) {
 			try {
-				String strValue = "" + field.get(obj);
+				String strValue = (String) field.get(obj);
 				String regEx = pattern.value();
 				if(!strValue.matches(regEx)) {
 					res += ";" + pattern.message();
