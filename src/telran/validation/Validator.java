@@ -47,11 +47,6 @@ public class Validator {
 
 		}
 		String strValue = value.toString();
-		if (value instanceof String) {
-			return stringMinMaxValidation(field, annotation, strValue, isMax);
-		} else {
-
-		}
 		return value instanceof String ? stringMinMaxValidation(field, annotation, strValue, isMax)
 				: numberMinMaxValidation(field, annotation, strValue, isMax);
 
